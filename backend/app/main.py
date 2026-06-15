@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api.routes.scan import router as scan_router
 
 app = FastAPI(
     title = "ShopSafe",
@@ -13,6 +14,7 @@ app.add_middleware(
     allow_methods = ["*"],
     allow_headers = ["*"],
 )
+app.include_router(scan_router)
 
 @app.get("/")
 def home():
