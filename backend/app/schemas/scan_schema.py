@@ -6,5 +6,7 @@ class ScanRequest(BaseModel):
 
 
 class ScanResponse(BaseModel):
-    status: str
+    status: str = "completed"
     url: str
+    title: str | None = None
+    html_length: int | None = None
